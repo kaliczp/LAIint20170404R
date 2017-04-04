@@ -6,3 +6,6 @@ P.nc <- nc_open("fresee2.1_prec.nc")
 Lon <- ncvar_get(P.nc, "Lon")
 Lat <- ncvar_get(P.nc, "Lat")
 
+library(sp)
+hun <- readRDS("HUN_adm0.rds")
+plot(hun)
