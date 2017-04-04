@@ -19,3 +19,5 @@ points(rep(Lon,length(Lat)),rep(Lat,each=length(Lon)))
 points(Lon[3],Lat[12],col="purple")
 
 P.hv <- ncvar_get(P.nc,"Precipitation", c(3,12,1),c(1,1,23360))
+akt.time <- seq(as.Date("1951-01-01"),as.Date("2014-12-31"),"days")
+foresee.time <- akt.time[-grep("-02-29",akt.time)+306]
