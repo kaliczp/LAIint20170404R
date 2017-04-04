@@ -10,4 +10,8 @@ library(sp)
 hun <- readRDS("HUN_adm0.rds")
 plot(hun)
 points(16.453970,47.656329)
+points(rep(Lon,length(Lat)),rep(Lat,each=length(Lon)),pch=".")
+
+plot(hun, xlim=c(16.3,16.6), ylim=c(47.5,47.9))
+points(16.453970,47.656329)
 points(rep(Lon,length(Lat)),rep(Lat,each=length(Lon)))
