@@ -15,3 +15,7 @@ points(rep(Lon,length(Lat)),rep(Lat,each=length(Lon)),pch=".")
 plot(hun, xlim=c(16.3,16.6), ylim=c(47.5,47.9))
 points(16.453970,47.656329)
 points(rep(Lon,length(Lat)),rep(Lat,each=length(Lon)))
+
+points(Lon[3],Lat[12],col="purple")
+
+P.hv <- ncvar_get(P.nc,"Precipitation", c(3,12,1),c(1,1,23360))
