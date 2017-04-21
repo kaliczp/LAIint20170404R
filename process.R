@@ -28,3 +28,17 @@ plot(Pfre.xts)
 dummy.xts <- xts(rep(NA,length(akt.time)), akt.time)
 P.xts <- merge.xts(Pfre.xts, dummy.xts)
 P.xts <- P.xts[,1]
+
+## Yearly average LAI
+LAI.ordered <- LAI[order(substr(LAI[,1],6,10)),]
+LAI.aggr <- aggregate(LAI.ordered[,2], list(monthday=substr(LAI.ordered[,1],6,10)), mean)
+LAI.aggr.xts <- xts(LAI.aggr[,2],as.Date(paste0("2016-",LAI.aggr[,1])))
+plot(LAI.aggr.xts)
+
+## Visualise result
+plot(LAI.xts)
+lines(LAI.aggr.xts,col=2)
+for(tti in 2002:2015)
+    lines(xts(LAI.aggr[,2],as.Date(paste(tti,LAI.aggr[,1],sep="-"))),col=2)
+
+##
