@@ -20,7 +20,8 @@ points(Lon[3],Lat[12],col="purple")
 
 P.hv <- ncvar_get(P.nc,"Precipitation", c(3,12,1),c(1,1,23360))
 akt.time <- seq(as.Date("1951-01-01"),as.Date("2014-12-31"),"days")
-foresee.time <- akt.time[-grep("-02-29",akt.time)+306]
+## Where leap year remove 31st of December
+foresee.time <- akt.time[-(grep("-02-29",akt.time)+307)]
 Pfre.xts <- xts(P.hv, foresee.time)
 plot(Pfre.xts)
 
