@@ -209,3 +209,12 @@ axis.Date(1, at=all.years, tcl=0)
 legend("bottomleft", c("Past data","REMO-ECHAM5","RACMO2-ECHAM5","RCA-HadCM3Q0","REGCM3-ECHAM5","REGCM3_ECHAM5","HIRHAM5_ARPEGE","HadRM3Q0-HadCM3Q0","CLM-HadCM3Q0","ALADIN-ARPEGE"), lwd=3, col=c(1,2,3,4,5,6,7,8,9,10), bg="white", ncol=2)
 box(lwd=2)
 dev.off()
+
+## Export András
+plot(Esu['1999/2008'],xaxs="i")
+
+Esu.monthly <- period.sum(Esu['1999/2008'],endpoints(Esu['1999/2008'], on="months", k=1))
+
+plot(Esu.monthly)
+length(Esu.monthly)
+write.csv2(Esu.monthly,"Esu.month.csv")
