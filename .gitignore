@@ -5,3 +5,7 @@
 *~
 *.Rproj
 .Rproj.user
+*nc
+*RData
+*pdf
+*rds
