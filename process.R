@@ -210,6 +210,22 @@ legend("bottomleft", c("Past data","REMO-ECHAM5","RACMO2-ECHAM5","RCA-HadCM3Q0",
 box(lwd=2)
 dev.off()
 
+library(zoo)
+library(xts)
+pdf("intercratiopast.pdf", width=7, height=3.9, pointsize=14)
+past.years <- as.Date(paste0(1999:2008,"-12-31"))
+par(mar=c(1.5,3.6,0.6,0.6), las=1, mgp=c(2.6,1,0))
+plot.zoo(as.zoo(past.ratio),ylim=c(0,0.5), xaxs="i", xlim=as.Date(paste0(c(1999,2008),"-12-31")), typ="n", xaxt="n", ylab="Esu/P ratio")
+grid(nx=NA, ny=NULL, lwd=2)
+axis(1, at=past.years, lab=F, tck=1, col="lightgray", lty="dotted", lwd=2)
+lines(as.zoo(past.ratio),lwd=3)
+axis(1, at=past.years, lab=F)
+par(mgp=c(1,0.5,0))
+## axis.Date(1, at=month.aggr[-13]+15, format="%m", tcl=0)
+axis.Date(1, at=past.years, tcl=0)
+box(lwd=2)
+dev.off()
+
 ## Export András
 plot(Esu['1999/2008'],xaxs="i")
 
