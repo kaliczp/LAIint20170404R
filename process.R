@@ -82,7 +82,7 @@ P.xts <- P.xts[,1]
 
 
 ## Yearly average LAI
-LAI.spl <- data.frame(dat=LAI[,1],LAI=oLAI.spline$y)
+LAI.spl <- data.frame(dat=LAI[,1],LAI=LAI.spline$y)
 LAI.ordered <- LAI.spl[order(substr(LAI.spl[,1],6,10)),]
 LAI.aggr <- aggregate(LAI.ordered[,2], list(monthday=substr(LAI.ordered[,1],6,10)), mean)
 LAI.aggr[60,2] <- mean(LAI.aggr[c(59,61),2])
